@@ -44,12 +44,14 @@ def login(iterator):
     if userdataSplit[0] == nameAsBlake2b and userdataSplit[1] == passwordAsBlake2b and iterator < 5:
         print("You have successfully logged in!")
         return userInformation
+
     elif iterator < 5:
         print("Wrong combination of username and password! ")
         print(userdataSplit[0])
         print(nameAsBlake2b)
         iterator += 1
         return login(iterator)
+        
     elif iterator == 5:
         print("Too many failed logins!")
         return

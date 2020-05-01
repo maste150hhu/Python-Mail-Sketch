@@ -4,11 +4,11 @@ import getpass
 import hashlib as Hash
 
 def login(n):
-    name_ = input("Username: ")
+    usernameRaw = input("Username: ")
     pw_ = getpass.getpass()
 
     blake2bHash = Hash.blake2b();
-    blake2bHash.update(name_.encode())
+    blake2bHash.update(usernameRaw.encode())
     nameAsBlake2b = blake2bHash.hexdigest()
 
     passwordBlake2bHash = Hash.blake2b();
@@ -39,7 +39,7 @@ def login(n):
     userInformationRaw = credentials.readlines()
     userInformationSplit = userInformationRaw[0].split("=")
 
-    userInformation = [name_, userInformationSplit[0], userInformationSplit[1], userInformationSplit[2]]
+    userInformation = [usernameRaw, userInformationSplit[0], userInformationSplit[1], userInformationSplit[2]]
 
     if userdataSplit[0] == nameAsBlake2b and userdataSplit[1] == passwordAsBlake2b and n < 5:
         print("You have successfully logged in!")

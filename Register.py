@@ -36,6 +36,20 @@ def register():
     userInformation = [password, mail, forename, famname]
     userInformationHash = []
 
+    credentialsHash = blake2bHash.update(password.encode())
+    credentialsFilePath = "Users/" + credentialsHash.hexdigest() + ".db"
+
+    credentials = open(credentialsFilePath, "a")
+    credentialsAsString = ""
+
+    credentialsAsString += "=" + userInformation[1]
+    credentialsAsString += "=" + userInformation[2]
+    credentialsAsString += "=" + userInformation[3]
+
+    credentials.write(credentialsAsString)
+    credentials.close()
+    
+
     for i in range(len(userInformation)):
         userInformationHash.insert(len(userInformationHash), Hash.blake2b())
     f = open(path, "a")

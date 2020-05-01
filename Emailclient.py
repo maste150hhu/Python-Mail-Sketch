@@ -108,9 +108,11 @@ while True:
                 famname  = currentUser[3]
 
                 print(os.linesep + "Welcome " + currentUser[2] + "!")
+                
         else:
             print()
             print("You are already logged in!")
+
     # case 3: registration
     elif userInputCommand == "register":
         if not loggedIn:
@@ -122,7 +124,7 @@ while True:
     # case 4: exit the program
     elif userInputCommand == "exit":
         sys.exit()
-        
+
     # case 5: show account-information
     elif userInputCommand == "info":
         if not loggedIn:

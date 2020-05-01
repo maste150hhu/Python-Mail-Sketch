@@ -22,19 +22,19 @@ def send(from_):
             recipientDatabase = "Users/" + recipientName + "-inbox" + ".b2DB"
             print(recipientDatabase)
 
-            fh = open(recipientDatabase, 'a')
+            recipientDatabaseLocation = open(recipientDatabase, 'a')
             
             tit = input("Title: ")
             text = input("Content: ")
 
             now = datetime.datetime.now()
-            fh.write(now.strftime("%Y-%m-%d %H:%M") + os.linesep)
-            fh.write(from_)
-            fh.write(recipientName + os.linesep)
-            fh.write(tit + os.linesep)
-            fh.write(text + os.linesep)
+            recipientDatabaseLocation.write(now.strftime("%Y-%m-%d %H:%M") + os.linesep)
+            recipientDatabaseLocation.write(from_)
+            recipientDatabaseLocation.write(recipientName + os.linesep)
+            recipientDatabaseLocation.write(tit + os.linesep)
+            recipientDatabaseLocation.write(text + os.linesep)
 
-            fh.close()
+            recipientDatabaseLocation.close()
 
             print()
             print("Your mail was sent to " + recipientName)

@@ -108,7 +108,7 @@ while True:
                 famname  = currentUser[3]
 
                 print(os.linesep + "Welcome " + currentUser[2] + "!")
-                
+
         else:
             print()
             print("You are already logged in!")
@@ -137,6 +137,7 @@ while True:
             print("Email: " + currentUser[1])
             print("Forename: " + currentUser[2])
             print("Name: " + currentUser[3])
+            
     # cae 6: show account-management-terminal
     elif userInputCommand == "account":
         if not loggedIn:

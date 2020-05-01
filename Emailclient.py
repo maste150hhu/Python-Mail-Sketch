@@ -175,7 +175,7 @@ while True:
                     else:
                         print()
                         print("The password you entered is not correct!")
-                        
+
                 # case 6.3: Call change-email-routine
                 elif accountcmd == "changemail":
                     print()
@@ -186,6 +186,7 @@ while True:
                         print()
                         newmail = input("Please enter your new Email: ")
                         update(username, password, newmail, forename, famname)
+                        
                     else:
                         print()
                         print("The password you entered is not correct!")

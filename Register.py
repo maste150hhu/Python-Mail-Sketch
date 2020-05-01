@@ -14,7 +14,7 @@ def register():
     nameAsBlake2b = blake2bHash.hexdigest()
     
     userInformationFilePath = "Users/" + nameAsBlake2b + ".db"
-    print(userInformationFilePath)
+
     try:
         userInformationProtectedDatabase = open(userInformationFilePath, 'r')
         print("Username ", name, " is already taken. Please try again!")

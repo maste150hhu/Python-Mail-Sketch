@@ -223,21 +223,21 @@ while True:
             # 3: Title
             # 4: Content
             inboxData = userEmailDatabase.readlines()
-            x = 0
-            while x < len(inboxData):
-                term = x/5 + 1
+            whileLoopIterator = 0
+            while whileLoopIterator < len(inboxData):
+                term = whileLoopIterator/5 + 1
                 print(str(term).replace(".0", ""))
                 print("-  -  -  -  -  -  -  -  -  -  -")
-                print("Date: " + inboxData[x])
-                print("From: " + inboxData[x+1].replace(os.linesep, ""))
+                print("Date: " + inboxData[whileLoopIterator])
+                print("From: " + inboxData[whileLoopIterator+1].replace(os.linesep, ""))
                 print("-  -  -  -  -  -  -  -  -  -  -")
-                print(inboxData[x+3].replace(os.linesep, ""))
+                print(inboxData[whileLoopIterator+3].replace(os.linesep, ""))
                 print("-  -  -  -  -  -  -  -  -  -  -")
-                print(inboxData[x+4])
+                print(inboxData[whileLoopIterator+4])
                 print("-  -  -  -  -  -  -  -  -  -  -")
                 print()
                 print()
-                x += 5 
+                whileLoopIterator += 5 
             print("There are " + str(term).replace(".0", "") + " Mails in your inbox!")           
             print()
             print("Type 'exit' to leave the inbox-terminal or 'delete' to delete an Email with a certain ID")
@@ -258,8 +258,8 @@ while True:
                 
                 userEmailDatabaseLocation = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.db"
                 fp = open(userEmailDatabaseLocation, 'w')
-                for x in inboxData:
-                    fp.write(inboxData[x])
+                for whileLoopIterator in inboxData:
+                    fp.write(inboxData[whileLoopIterator])
 
     # case X: command not found
     else:

@@ -5,14 +5,14 @@ import hashlib as Hash
 
 def login(n):
     usernameRaw = input("Username: ")
-    pw_ = getpass.getpass()
+    passwordRaw = getpass.getpass()
 
     blake2bHash = Hash.blake2b();
     blake2bHash.update(usernameRaw.encode())
     nameAsBlake2b = blake2bHash.hexdigest()
 
     passwordBlake2bHash = Hash.blake2b();
-    passwordBlake2bHash.update(pw_.encode())
+    passwordBlake2bHash.update(passwordRaw.encode())
     passwordAsBlake2b = passwordBlake2bHash.hexdigest()
 
     path = "Users/" + nameAsBlake2b + ".db"
@@ -32,7 +32,7 @@ def login(n):
     
     credentialsHash = Hash.blake2b()
     credentialsHash.update(nameAsBlake2b.encode())
-    credentialsHash.update(pw_.encode())
+    credentialsHash.update(passwordRaw.encode())
     credentialsFilePath = "Users/" + credentialsHash.hexdigest() + ".db"
 
     credentials = open(credentialsFilePath, "r")

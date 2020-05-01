@@ -12,15 +12,15 @@ loggedIn = False
 currentUser = None
 
 # function to update user-information
-def update(user, pw, mail, fn, ln):
+def update(usernameRaw, pw, mail, fn, ln):
 
     # path to the account-information
-    path = "Users/" + user + ".db"
+    path = "Users/" + usernameRaw + ".db"
 
     # override the information
     try:
         f = open(path, "w")
-        f.write(user + os.linesep)
+        f.write(usernameRaw + os.linesep)
         f.write(pw + os.linesep)
         f.write(mail + os.linesep)
         f.write(fn + os.linesep)

@@ -19,13 +19,13 @@ def update(usernameRaw, passwordRaw, emailAdress, forename, familyName):
 
     # override the information
     try:
-        f = open(path, "w")
-        f.write(usernameRaw + os.linesep)
-        f.write(passwordRaw + os.linesep)
-        f.write(emailAdress + os.linesep)
-        f.write(forename + os.linesep)
-        f.write(familyName + os.linesep)
-        f.close()
+        userDatabase = open(path, "w")
+        userDatabase.write(usernameRaw + os.linesep)
+        userDatabase.write(passwordRaw + os.linesep)
+        userDatabase.write(emailAdress + os.linesep)
+        userDatabase.write(forename + os.linesep)
+        userDatabase.write(familyName + os.linesep)
+        userDatabase.close()
         print()
 
         try:

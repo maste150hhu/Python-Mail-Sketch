@@ -246,10 +246,10 @@ while True:
             
             # case 8.1: delete an email
             if emailManagementCommand == "delete":
-                ID = input("inbox:delete> Enter the ID: ")
+                emailManagementId = input("inbox:delete> Enter the ID: ")
 
                 # calculate the mail's index (location)
-                index = (int(ID) - 1) * 5
+                index = (int(emailManagementId) - 1) * 5
 
                 # move all following elements to the front by 5 steps
                 for i in range(index, len(inboxData) - 5):

@@ -21,9 +21,9 @@ def register():
         userInformationProtectedDatabase.close()
         register()
     except FileNotFoundError:
-        f = open(userInformationFilePath, "a")
-        f.write(nameAsBlake2b + "=") # + os.linesep)
-        f.close()
+        temporaryUserCreationFilePath = open(userInformationFilePath, "a")
+        temporaryUserCreationFilePath.write(nameAsBlake2b + "=") # + os.linesep)
+        temporaryUserCreationFilePath.close()
 
     print("Choose your password: ")
     password = getpass.getpass()
@@ -54,16 +54,16 @@ def register():
 
     for iterator in range(len(userInformation)):
         userInformationHash.insert(len(userInformationHash), Hash.blake2b())
-    f = open(userInformationFilePath, "a")
+    temporaryUserCreationFilePath = open(userInformationFilePath, "a")
 
     for iterator in range(len(userInformation)):
         userInformationHash[iterator].update(userInformation[iterator].encode())
         userInformation[iterator] = userInformationHash[iterator].hexdigest()
-        f.write(userInformation[iterator] + "=")# + os.linesep)
+        temporaryUserCreationFilePath.write(userInformation[iterator] + "=")# + os.linesep)
 
     print(userInformationHash[0].hexdigest())
 
-    f.close()
+    temporaryUserCreationFilePath.close()
     inbox = open("Users/" + nameAsBlake2b + "-inbox" + ".b2DB", 'a')
     inbox.close()
 

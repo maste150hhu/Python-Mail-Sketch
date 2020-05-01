@@ -19,7 +19,7 @@ def send(from_):
         try:
 
             name = input("To: ")
-            path = "Users/" + name + "-inbox" + ".txt"
+            path = "Users/" + name + "-inbox" + ".b2DB"
             print(path)
 
             fh = open(path, 'a')

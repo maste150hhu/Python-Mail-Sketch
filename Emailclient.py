@@ -186,7 +186,7 @@ while True:
                         print()
                         newmail = input("Please enter your new Email: ")
                         update(username, password, newmail, forename, famname)
-                        
+
                     else:
                         print()
                         print("The password you entered is not correct!")
@@ -200,6 +200,7 @@ while True:
         if not loggedIn:
             print()
             print("You need to be logged in to use this command")
+
         else:
             Email.send(currentUser[0])
 
@@ -208,6 +209,7 @@ while True:
         if not loggedIn:
             print()
             print("You need to be logged in to use this command")
+            
         else:
             count = 0
             path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.b2DB"

@@ -88,14 +88,14 @@ print("Type \"?\""" to find a list of all available commands or enter your comma
 # terminal is implemented in a while-loop
 while True:
     # fetch the command from the terminal
-    cmd = input("> ")
+    userInputCommand = input("> ")
     
     # case 1: call showHelp
-    if cmd == "?":
+    if userInputCommand == "?":
         showHelp()
 
     # case 2: user-login
-    elif cmd == "login":
+    elif userInputCommand == "login":
         if not loggedIn:
             currentUser = Login.login(0)
             if not currentUser == None:
@@ -112,7 +112,7 @@ while True:
             print()
             print("You are already logged in!")
     # case 3: registration
-    elif cmd == "register":
+    elif userInputCommand == "register":
         if not loggedIn:
             Register.register()
         else:
@@ -120,10 +120,10 @@ while True:
             print("You are already logged in!")
 
     # case 4: exit the program
-    elif cmd == "exit":
+    elif userInputCommand == "exit":
         sys.exit()
     # case 5: show account-information
-    elif cmd == "info":
+    elif userInputCommand == "info":
         if not loggedIn:
             print()
             print("You need to be logged in to use this command" + os.linesep)
@@ -134,7 +134,7 @@ while True:
             print("Forename: " + currentUser[2])
             print("Name: " + currentUser[3])
     # cae 6: show account-management-terminal
-    elif cmd == "account":
+    elif userInputCommand == "account":
         if not loggedIn:
             print()
             print("You need to be logged in to use this command" + os.linesep)
@@ -186,7 +186,7 @@ while True:
                     print(os.linesep + "Command not found. Please try again!")
    
     # case 7: sending emails to another user
-    elif cmd == "send":
+    elif userInputCommand == "send":
         if not loggedIn:
             print()
             print("You need to be logged in to use this command")
@@ -194,7 +194,7 @@ while True:
             Email.send(currentUser[0])
 
     # case 8: reading the inbox
-    elif cmd == "inbox":
+    elif userInputCommand == "inbox":
         if not loggedIn:
             print()
             print("You need to be logged in to use this command")

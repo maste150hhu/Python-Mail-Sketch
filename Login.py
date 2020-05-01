@@ -15,10 +15,10 @@ def login(n):
     passwordBlake2bHash.update(passwordRaw.encode())
     passwordAsBlake2b = passwordBlake2bHash.hexdigest()
 
-    path = "Users/" + nameAsBlake2b + ".db"
+    userDatabase = "Users/" + nameAsBlake2b + ".db"
 
     try:
-        fh = open(path, 'r')
+        fh = open(userDatabase, 'r')
         userdata = fh.readlines()
         userdataSplit = userdata[0].split("=")
         fh.close()

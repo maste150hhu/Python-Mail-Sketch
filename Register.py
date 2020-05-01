@@ -16,12 +16,14 @@ def register():
     userInformationFilePath = "Users/" + nameAsBlake2b + ".db"
 
     try:
-        
+
         userInformationProtectedDatabase = open(userInformationFilePath, 'r')
         print("Username ", name, " is already taken. Please try again!")
         userInformationProtectedDatabase.close()
         register()
+        
     except FileNotFoundError:
+
         temporaryUserCreationFilePath = open(userInformationFilePath, "a")
         temporaryUserCreationFilePath.write(nameAsBlake2b + "=") # + os.linesep)
         temporaryUserCreationFilePath.close()

@@ -257,9 +257,9 @@ while True:
                     print(iterator)
                 
                 userEmailDatabaseLocation = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.db"
-                fp = open(userEmailDatabaseLocation, 'w')
+                userEmailDatabase = open(userEmailDatabaseLocation, 'w')
                 for whileLoopIterator in inboxData:
-                    fp.write(inboxData[whileLoopIterator])
+                    userEmailDatabase.write(inboxData[whileLoopIterator])
 
     # case X: command not found
     else:

@@ -3,7 +3,7 @@ import os
 import getpass
 import hashlib as Hash
 
-def login(n):
+def login(iterator):
     usernameRaw = input("Username: ")
     passwordRaw = getpass.getpass()
 
@@ -25,8 +25,8 @@ def login(n):
 
     except FileNotFoundError:
         print("This account does not exist. Please try again!")
-        n += 1
-        login(n)
+        iterator += 1
+        login(iterator)
 
     # build an array containing the user-information
     
@@ -41,16 +41,16 @@ def login(n):
 
     userInformation = [usernameRaw, userInformationSplit[0], userInformationSplit[1], userInformationSplit[2]]
 
-    if userdataSplit[0] == nameAsBlake2b and userdataSplit[1] == passwordAsBlake2b and n < 5:
+    if userdataSplit[0] == nameAsBlake2b and userdataSplit[1] == passwordAsBlake2b and iterator < 5:
         print("You have successfully logged in!")
         return userInformation
-    elif n < 5:
+    elif iterator < 5:
         print("Wrong combination of username and password! ")
         print(userdataSplit[0])
         print(nameAsBlake2b)
-        n += 1
-        return login(n)
-    elif n == 5:
+        iterator += 1
+        return login(iterator)
+    elif iterator == 5:
         print("Too many failed logins!")
         return
 

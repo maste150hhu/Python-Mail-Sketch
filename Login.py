@@ -18,10 +18,10 @@ def login(n):
     userDatabase = "Users/" + nameAsBlake2b + ".db"
 
     try:
-        fh = open(userDatabase, 'r')
-        userdata = fh.readlines()
+        UserDatabaseConnection = open(userDatabase, 'r')
+        userdata = UserDatabaseConnection.readlines()
         userdataSplit = userdata[0].split("=")
-        fh.close()
+        UserDatabaseConnection.close()
 
     except FileNotFoundError:
         print("This account does not exist. Please try again!")

@@ -156,7 +156,7 @@ while True:
                 # case 6.1: exit the AMT
                 if accountcmd == "?":
                     showAccountHelp()
-                    
+
                 elif accountcmd == "exit":
                     break
 
@@ -171,9 +171,11 @@ while True:
                         print("Please enter your new password!")
                         newpw = getpass.getpass()
                         update(username, newpw, email, forename, famname)
+
                     else:
                         print()
                         print("The password you entered is not correct!")
+                        
                 # case 6.3: Call change-email-routine
                 elif accountcmd == "changemail":
                     print()

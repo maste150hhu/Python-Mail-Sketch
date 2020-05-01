@@ -24,14 +24,14 @@ def send(from_):
 
             recipientDatabaseLocation = open(recipientDatabase, 'a')
             
-            tit = input("Title: ")
+            emailTitle = input("Title: ")
             text = input("Content: ")
 
             now = datetime.datetime.now()
             recipientDatabaseLocation.write(now.strftime("%Y-%m-%d %H:%M") + os.linesep)
             recipientDatabaseLocation.write(from_)
             recipientDatabaseLocation.write(recipientName + os.linesep)
-            recipientDatabaseLocation.write(tit + os.linesep)
+            recipientDatabaseLocation.write(emailTitle + os.linesep)
             recipientDatabaseLocation.write(text + os.linesep)
 
             recipientDatabaseLocation.close()

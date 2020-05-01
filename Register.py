@@ -27,8 +27,6 @@ def register():
 
     print("Choose your password: ")
     password = getpass.getpass()
-    
-    # add password restrictions
 
     mail = input("Choose your e-Mail-adress: ")
 
@@ -39,6 +37,7 @@ def register():
     f = open(path, "a")
 
     for i in range(len(userInformation)):
+        print(userInformation[i])
         blake2bHash.update(userInformation[i].encode())
         userInformation[i] = blake2bHash.hexdigest()
         f.write(userInformation[i] + "=")# + os.linesep)

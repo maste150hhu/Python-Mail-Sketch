@@ -242,10 +242,10 @@ while True:
             print()
             print("Type 'exit' to leave the inbox-terminal or 'delete' to delete an Email with a certain ID")
 
-            mailcmd = input("inbox> ")
+            emailManagementCommand = input("inbox> ")
             
             # case 8.1: delete an email
-            if mailcmd == "delete":
+            if emailManagementCommand == "delete":
                 ID = input("inbox:delete> Enter the ID: ")
 
                 # calculate the mail's index (location)

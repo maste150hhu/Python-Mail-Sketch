@@ -213,7 +213,7 @@ while True:
         else:
             count = 0
             path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.b2DB"
-            f = open(path, 'r')
+            userEmailDatabase = open(path, 'r')
 
             # generates an array with cardinality 5*n 
             # where n is the amount of emails
@@ -222,7 +222,7 @@ while True:
             # 2: To
             # 3: Title
             # 4: Content
-            inboxData = f.readlines()
+            inboxData = userEmailDatabase.readlines()
             x = 0
             while x < len(inboxData):
                 term = x/5 + 1

@@ -21,7 +21,7 @@ def register():
         print("Username ", name, " is already taken. Please try again!")
         userInformationProtectedDatabase.close()
         register()
-        
+
     except FileNotFoundError:
 
         temporaryUserCreationFilePath = open(userInformationFilePath, "a")
@@ -57,6 +57,7 @@ def register():
 
     for iterator in range(len(userInformation)):
         userInformationHash.insert(len(userInformationHash), Hash.blake2b())
+        
     temporaryUserCreationFilePath = open(userInformationFilePath, "a")
 
     for iterator in range(len(userInformation)):

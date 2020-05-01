@@ -212,8 +212,8 @@ while True:
 
         else:
             count = 0
-            path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.b2DB"
-            userEmailDatabase = open(path, 'r')
+            userEmailDatabaseLocation = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.b2DB"
+            userEmailDatabase = open(userEmailDatabaseLocation, 'r')
 
             # generates an array with cardinality 5*n 
             # where n is the amount of emails
@@ -256,8 +256,8 @@ while True:
                     inboxData[i] = inboxData[i+5]
                     print(i)
                 
-                path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.db"
-                fp = open(path, 'w')
+                userEmailDatabaseLocation = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.db"
+                fp = open(userEmailDatabaseLocation, 'w')
                 for x in inboxData:
                     fp.write(inboxData[x])
 

@@ -29,10 +29,10 @@ def update(usernameRaw, passwordRaw, emailAdress, forename, familyName):
         print()
 
         try:
-            fh = open(path, 'r')
+            userDatabaseTemporary = open(path, 'r')
             global currentUser
-            currentUser = fh.readlines()
-            fh.close()
+            currentUser = userDatabaseTemporary.readlines()
+            userDatabaseTemporary.close()
 
         except FileNotFoundError:
             return

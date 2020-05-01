@@ -18,8 +18,8 @@ def send(from_):
 
         try:
 
-            name = input("To: ")
-            path = "Users/" + name + "-inbox" + ".b2DB"
+            recipientName = input("To: ")
+            path = "Users/" + recipientName + "-inbox" + ".b2DB"
             print(path)
 
             fh = open(path, 'a')
@@ -30,14 +30,14 @@ def send(from_):
             now = datetime.datetime.now()
             fh.write(now.strftime("%Y-%m-%d %H:%M") + os.linesep)
             fh.write(from_)
-            fh.write(name + os.linesep)
+            fh.write(recipientName + os.linesep)
             fh.write(tit + os.linesep)
             fh.write(text + os.linesep)
 
             fh.close()
 
             print()
-            print("Your mail was sent to " + name)
+            print("Your mail was sent to " + recipientName)
 
         except FileNotFoundError:
             print()

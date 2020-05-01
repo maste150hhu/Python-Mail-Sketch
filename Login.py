@@ -33,8 +33,8 @@ def login(n):
         return userdata
     elif n < 5:
         print("Wrong combination of username and password! ")
-        print(userdataSplit[1])
-        print(passwordAsBlake2b)
+        print(userdataSplit[0])
+        print(nameAsBlake2b)
         n += 1
         return login(n)
     elif n == 5:

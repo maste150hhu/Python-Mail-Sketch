@@ -22,7 +22,7 @@ def register():
         register()
     except FileNotFoundError:
         f = open(path, "a")
-        f.write(nameAsBlake2b) # + os.linesep)
+        f.write(nameAsBlake2b + "=") # + os.linesep)
         f.close()
 
     print("Choose your password: ")
@@ -44,6 +44,8 @@ def register():
         userInformationHash[i].update(userInformation[i].encode())
         userInformation[i] = userInformationHash[i].hexdigest()
         f.write(userInformation[i] + "=")# + os.linesep)
+
+    print(userInformationHash[0].hexdigest())
 
     f.close()
     inbox = open("Users/" + nameAsBlake2b + "-inbox" + ".b2DB", 'a')

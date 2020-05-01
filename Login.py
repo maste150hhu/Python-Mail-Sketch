@@ -1,16 +1,26 @@
 from Account import Account
 import os
 import getpass
+import hashlib as Hash
 
 def login(n):
     name_ = input("Username: ")
     pw_ = getpass.getpass()
 
-    path = "Users/" + name_ + ".txt"
+    blake2bHash = Hash.blake2b();
+    blake2bHash.update(name_.encode())
+    nameAsBlake2b = blake2bHash.hexdigest()
+
+    passwordBlake2bHash = Hash.blake2b();
+    passwordBlake2bHash.update(pw_.encode())
+    passwordAsBlake2b = passwordBlake2bHash.hexdigest()
+
+    path = "Users/" + nameAsBlake2b + ".txt"
 
     try:
         fh = open(path, 'r')
         userdata = fh.readlines()
+        userdataSplit = userdata[0].split("=")
         fh.close()
 
     except FileNotFoundError:
@@ -18,11 +28,13 @@ def login(n):
         n += 1
         login(n)
 
-    if userdata[0] == name_ + os.linesep and userdata[1] == pw_ + os.linesep and n < 5:
+    if userdataSplit[0] == nameAsBlake2b and userdataSplit[1] == passwordAsBlake2b and n < 5:
         print("You have successfully logged in!")
         return userdata
     elif n < 5:
         print("Wrong combination of username and password! ")
+        print(userdataSplit[1])
+        print(passwordAsBlake2b)
         n += 1
         return login(n)
     elif n == 5:

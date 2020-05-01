@@ -34,16 +34,19 @@ def register():
     famname = input("Enter your family name: ")
 
     userInformation = [password, mail, forename, famname]
+    userInformationHash = []
+
+    for i in range(len(userInformation)):
+        userInformationHash.insert(len(userInformationHash), Hash.blake2b())
     f = open(path, "a")
 
     for i in range(len(userInformation)):
-        print(userInformation[i])
-        blake2bHash.update(userInformation[i].encode())
-        userInformation[i] = blake2bHash.hexdigest()
+        userInformationHash[i].update(userInformation[i].encode())
+        userInformation[i] = userInformationHash[i].hexdigest()
         f.write(userInformation[i] + "=")# + os.linesep)
 
     f.close()
-    inbox = open("Users/" + nameAsBlake2b + "-inbox" + ".txt", 'a')
+    inbox = open("Users/" + nameAsBlake2b + "-inbox" + ".b2DB", 'a')
     inbox.close()
 
 #register()

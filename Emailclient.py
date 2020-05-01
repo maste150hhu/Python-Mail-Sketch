@@ -122,11 +122,13 @@ while True:
     # case 4: exit the program
     elif userInputCommand == "exit":
         sys.exit()
+        
     # case 5: show account-information
     elif userInputCommand == "info":
         if not loggedIn:
             print()
             print("You need to be logged in to use this command" + os.linesep)
+
         else:
             print()
             print("Username: " + currentUser[0])

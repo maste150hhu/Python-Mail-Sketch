@@ -19,10 +19,10 @@ def send(from_):
         try:
 
             recipientName = input("To: ")
-            path = "Users/" + recipientName + "-inbox" + ".b2DB"
-            print(path)
+            recipientDatabase = "Users/" + recipientName + "-inbox" + ".b2DB"
+            print(recipientDatabase)
 
-            fh = open(path, 'a')
+            fh = open(recipientDatabase, 'a')
             
             tit = input("Title: ")
             text = input("Content: ")

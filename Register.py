@@ -13,7 +13,7 @@ def register():
 
     nameAsBlake2b = blake2bHash.hexdigest()
     
-    path = "Users/" + nameAsBlake2b + ".txt"
+    path = "Users/" + nameAsBlake2b + ".db"
     print(path)
     try:
         fh = open(path, 'r')
@@ -36,13 +36,15 @@ def register():
     userInformation = [password, mail, forename, famname]
     userInformationHash = []
 
-    credentialsHash = blake2bHash.update(password.encode())
+    credentialsHash = Hash.blake2b()
+    credentialsHash.update(nameAsBlake2b.encode())
+    credentialsHash.update(password.encode())
     credentialsFilePath = "Users/" + credentialsHash.hexdigest() + ".db"
 
     credentials = open(credentialsFilePath, "a")
     credentialsAsString = ""
 
-    credentialsAsString += "=" + userInformation[1]
+    credentialsAsString += userInformation[1]
     credentialsAsString += "=" + userInformation[2]
     credentialsAsString += "=" + userInformation[3]
 

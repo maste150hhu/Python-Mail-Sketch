@@ -15,7 +15,7 @@ currentUser = None
 def update(user, pw, mail, fn, ln):
 
     # path to the account-information
-    path = "Users/" + user + ".txt"
+    path = "Users/" + user + ".db"
 
     # override the information
     try:
@@ -102,13 +102,12 @@ while True:
                 loggedIn = True
                 
                 # set important variables
-                username = currentUser[0].replace(os.linesep, "")
-                password = currentUser[1].replace(os.linesep, "")
-                email    = currentUser[2].replace(os.linesep, "")
-                forename = currentUser[3].replace(os.linesep, "")
-                famname  = currentUser[4].replace(os.linesep, "")
+                username = currentUser[0]
+                email    = currentUser[1]
+                forename = currentUser[2]
+                famname  = currentUser[3]
 
-                print(os.linesep + "Welcome " + currentUser[3].replace(os.linesep, "") + "!")
+                print(os.linesep + "Welcome " + currentUser[2] + "!")
         else:
             print()
             print("You are already logged in!")
@@ -131,9 +130,9 @@ while True:
         else:
             print()
             print("Username: " + currentUser[0])
-            print("Email: " + currentUser[2])
-            print("Forename: " + currentUser[3])
-            print("Name: " + currentUser[4])
+            print("Email: " + currentUser[1])
+            print("Forename: " + currentUser[2])
+            print("Name: " + currentUser[3])
     # cae 6: show account-management-terminal
     elif cmd == "account":
         if not loggedIn:
@@ -201,7 +200,7 @@ while True:
             print("You need to be logged in to use this command")
         else:
             count = 0
-            path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.txt"
+            path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.b2DB"
             f = open(path, 'r')
 
             # generates an array with cardinality 5*n 
@@ -245,7 +244,7 @@ while True:
                     inboxData[i] = inboxData[i+5]
                     print(i)
                 
-                path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.txt"
+                path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.db"
                 fp = open(path, 'w')
                 for x in inboxData:
                     fp.write(inboxData[x])

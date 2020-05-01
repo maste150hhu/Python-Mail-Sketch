@@ -15,7 +15,7 @@ def login(n):
     passwordBlake2bHash.update(pw_.encode())
     passwordAsBlake2b = passwordBlake2bHash.hexdigest()
 
-    path = "Users/" + nameAsBlake2b + ".txt"
+    path = "Users/" + nameAsBlake2b + ".db"
 
     try:
         fh = open(path, 'r')
@@ -28,9 +28,22 @@ def login(n):
         n += 1
         login(n)
 
+    # build an array containing the user-information
+    
+    credentialsHash = Hash.blake2b()
+    credentialsHash.update(nameAsBlake2b.encode())
+    credentialsHash.update(pw_.encode())
+    credentialsFilePath = "Users/" + credentialsHash.hexdigest() + ".db"
+
+    credentials = open(credentialsFilePath, "r")
+    userInformationRaw = credentials.readlines()
+    userInformationSplit = userInformationRaw[0].split("=")
+
+    userInformation = [name_, userInformationSplit[0], userInformationSplit[1], userInformationSplit[2]]
+
     if userdataSplit[0] == nameAsBlake2b and userdataSplit[1] == passwordAsBlake2b and n < 5:
         print("You have successfully logged in!")
-        return userdata
+        return userInformation
     elif n < 5:
         print("Wrong combination of username and password! ")
         print(userdataSplit[0])

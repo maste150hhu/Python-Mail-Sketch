@@ -13,15 +13,15 @@ def register():
 
     nameAsBlake2b = blake2bHash.hexdigest()
     
-    path = "Users/" + nameAsBlake2b + ".db"
-    print(path)
+    userInformationFilePath = "Users/" + nameAsBlake2b + ".db"
+    print(userInformationFilePath)
     try:
-        fh = open(path, 'r')
+        userInformationProtectedDatabase = open(userInformationFilePath, 'r')
         print("Username ", name, " is already taken. Please try again!")
-        fh.close()
+        userInformationProtectedDatabase.close()
         register()
     except FileNotFoundError:
-        f = open(path, "a")
+        f = open(userInformationFilePath, "a")
         f.write(nameAsBlake2b + "=") # + os.linesep)
         f.close()
 
@@ -52,14 +52,14 @@ def register():
     credentials.close()
     
 
-    for i in range(len(userInformation)):
+    for iterator in range(len(userInformation)):
         userInformationHash.insert(len(userInformationHash), Hash.blake2b())
-    f = open(path, "a")
+    f = open(userInformationFilePath, "a")
 
-    for i in range(len(userInformation)):
-        userInformationHash[i].update(userInformation[i].encode())
-        userInformation[i] = userInformationHash[i].hexdigest()
-        f.write(userInformation[i] + "=")# + os.linesep)
+    for iterator in range(len(userInformation)):
+        userInformationHash[iterator].update(userInformation[iterator].encode())
+        userInformation[iterator] = userInformationHash[iterator].hexdigest()
+        f.write(userInformation[iterator] + "=")# + os.linesep)
 
     print(userInformationHash[0].hexdigest())
 

@@ -1,5 +1,0 @@
-foobar
-foo
-foobar@live.co
-Foo
-Bar

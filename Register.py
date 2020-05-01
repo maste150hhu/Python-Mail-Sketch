@@ -8,8 +8,12 @@ def register():
     blake2bHash = Hash.blake2b();
     
     name = input("Choose your username: ")
+
+    blake2bHash.update(name.encode())
+
+    nameAsBlake2b = blake2bHash.hexdigest()
     
-    path = "Users/" + name + ".txt"
+    path = "Users/" + nameAsBlake2b + ".txt"
     print(path)
     try:
         fh = open(path, 'r')
@@ -18,7 +22,7 @@ def register():
         register()
     except FileNotFoundError:
         f = open(path, "a")
-        f.write(name + os.linesep)
+        f.write(nameAsBlake2b) # + os.linesep)
         f.close()
 
     print("Choose your password: ")
@@ -31,13 +35,16 @@ def register():
     forename = input("Enter your forename: ")
     famname = input("Enter your family name: ")
 
+    userInformation = [password, mail, forename, famname]
     f = open(path, "a")
-    f.write(password + os.linesep)
-    f.write(mail + os.linesep)
-    f.write(forename + os.linesep)
-    f.write(famname + os.linesep)
+
+    for i in range(len(userInformation)):
+        blake2bHash.update(userInformation[i].encode())
+        userInformation[i] = blake2bHash.hexdigest()
+        f.write(userInformation[i] + "=")# + os.linesep)
+
     f.close()
-    inbox = open("Users/" + name + "-inbox" + ".txt", 'a')
+    inbox = open("Users/" + nameAsBlake2b + "-inbox" + ".txt", 'a')
     inbox.close()
 
 #register()

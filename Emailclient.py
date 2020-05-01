@@ -151,17 +151,17 @@ while True:
 
             # while-loop which implements the AMT
             while True:
-                accountcmd = input("account> ")
+                accountManagementTerminalCommand = input("account> ")
 
                 # case 6.1: exit the AMT
-                if accountcmd == "?":
+                if accountManagementTerminalCommand == "?":
                     showAccountHelp()
 
-                elif accountcmd == "exit":
+                elif accountManagementTerminalCommand == "exit":
                     break
 
                 # case 6.2: Call change-password-routine
-                elif accountcmd == "changepw":
+                elif accountManagementTerminalCommand == "changepw":
                     print()
                     print("Please enter your current password to use this function!")
                     oldpw = getpass.getpass()
@@ -177,7 +177,7 @@ while True:
                         print("The password you entered is not correct!")
 
                 # case 6.3: Call change-email-routine
-                elif accountcmd == "changemail":
+                elif accountManagementTerminalCommand == "changemail":
                     print()
                     print("Please enter your current password to use this function!")
                     oldpw = getpass.getpass()
@@ -209,7 +209,7 @@ while True:
         if not loggedIn:
             print()
             print("You need to be logged in to use this command")
-            
+
         else:
             count = 0
             path = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.b2DB"

@@ -137,12 +137,13 @@ while True:
             print("Email: " + currentUser[1])
             print("Forename: " + currentUser[2])
             print("Name: " + currentUser[3])
-            
+
     # cae 6: show account-management-terminal
     elif userInputCommand == "account":
         if not loggedIn:
             print()
             print("You need to be logged in to use this command" + os.linesep)
+
         # if logged in, start the AMT
         else:
             print()
@@ -155,6 +156,7 @@ while True:
                 # case 6.1: exit the AMT
                 if accountcmd == "?":
                     showAccountHelp()
+                    
                 elif accountcmd == "exit":
                     break
 

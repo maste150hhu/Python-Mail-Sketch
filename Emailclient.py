@@ -12,7 +12,7 @@ loggedIn = False
 currentUser = None
 
 # function to update user-information
-def update(usernameRaw, passwordRaw, emailAdress, forename, ln):
+def update(usernameRaw, passwordRaw, emailAdress, forename, familyName):
 
     # path to the account-information
     path = "Users/" + usernameRaw + ".db"
@@ -24,7 +24,7 @@ def update(usernameRaw, passwordRaw, emailAdress, forename, ln):
         f.write(passwordRaw + os.linesep)
         f.write(emailAdress + os.linesep)
         f.write(forename + os.linesep)
-        f.write(ln + os.linesep)
+        f.write(familyName + os.linesep)
         f.close()
         print()
 

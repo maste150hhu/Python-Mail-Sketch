@@ -1,8 +1,11 @@
 from Account import Account
 import os
 import getpass
+import hashlib as Hash
 
 def register():
+
+    blake2bHash = Hash.blake2b();
     
     name = input("Choose your username: ")
     

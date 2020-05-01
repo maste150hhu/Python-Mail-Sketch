@@ -164,9 +164,9 @@ while True:
                 elif accountManagementTerminalCommand == "changepw":
                     print()
                     print("Please enter your current password to use this function!")
-                    oldpw = getpass.getpass()
+                    currentUserPasswordFromInput = getpass.getpass()
 
-                    if password == oldpw:
+                    if password == currentUserPasswordFromInput:
                         print()
                         print("Please enter your new password!")
                         newpw = getpass.getpass()
@@ -180,9 +180,9 @@ while True:
                 elif accountManagementTerminalCommand == "changemail":
                     print()
                     print("Please enter your current password to use this function!")
-                    oldpw = getpass.getpass()
+                    currentUserPasswordFromInput = getpass.getpass()
 
-                    if password == oldpw:
+                    if password == currentUserPasswordFromInput:
                         print()
                         newmail = input("Please enter your new Email: ")
                         update(username, password, newmail, forename, famname)

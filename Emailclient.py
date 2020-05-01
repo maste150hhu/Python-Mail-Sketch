@@ -252,9 +252,9 @@ while True:
                 index = (int(emailManagementId) - 1) * 5
 
                 # move all following elements to the front by 5 steps
-                for i in range(index, len(inboxData) - 5):
-                    inboxData[i] = inboxData[i+5]
-                    print(i)
+                for iterator in range(index, len(inboxData) - 5):
+                    inboxData[iterator] = inboxData[iterator+5]
+                    print(iterator)
                 
                 userEmailDatabaseLocation = "Users/" + currentUser[0].replace(os.linesep, "") + "-inbox.db"
                 fp = open(userEmailDatabaseLocation, 'w')
